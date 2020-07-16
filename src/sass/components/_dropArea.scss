@@ -1,0 +1,43 @@
+body {
+
+	&::before,
+	&::after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		transition: opacity 120ms ease-in;
+		z-index: -1;
+	}
+
+	&::before {
+		content: "Drop File";
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 3rem;
+		color: $white;
+		opacity: 0;
+		border: 5px dashed $white;
+	}
+
+	&::after {
+		content: "";
+		background: $black;
+		opacity: 0;
+	}
+}
+
+body.dropArea {
+
+	&::before {
+		opacity: 1;
+		z-index: 8;
+	}
+
+	&::after {
+		opacity: .7;
+		z-index: 7;
+	}
+}

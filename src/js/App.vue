@@ -151,9 +151,54 @@ export default {
 			this.fileError = false;
 			this.imageSelected = true;
 			this.filename = file.name;
+		},
+		showUserTools() {
+			let ut = document.querySelector('.user-tools');
+
+			if (ut.classList.contains('show')) {
+				return ut.classList.remove('show')
+			}
+
+			ut.classList.add('show');
+		},
+		preventDefaults(e) {
+			e.preventDefault()
+			e.stopPropagation()
+		},
+		highlightDropArea() {
+
+		},
+		unlightDropArea() {
+
 		}
 	},
-	mounted() {}
+	mounted() {
+
+		['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+			window.addEventListener(eventName, this.preventDefaults, false)
+		})
+
+		window.addEventListener('dragenter', () => {
+			document.body.classList.add('dropArea')
+			console.log('drag entering')
+		})
+
+		window.addEventListener('dragleave', () => {
+			document.body.classList.remove('dropArea')
+			console.log('drag exited')
+		})
+
+		window.addEventListener('drop', (e) => {
+			let event = new Event('change');
+			let img = document.querySelector('input[name="image"]');
+
+			let files = e.dataTransfer.files
+			img.files = files
+			img.dispatchEvent(event)
+
+			document.body.classList.remove('dropArea')
+		})
+	}
 }
 
 </script>

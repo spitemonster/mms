@@ -25,11 +25,13 @@
 			<a href="/" class="button">Return</a>
 		</div>
 		<wait v-show="waiting"></wait>
+		<User v-if="!waiting"></User>
 	</main>
 </template>
 <script>
 import axios from 'axios';
-import wait from './wait.vue'
+import wait from './wait.vue';
+import User from './User.vue';
 
 export default {
 	name: '',
@@ -41,43 +43,11 @@ export default {
 		}
 	},
 	components: {
-		wait
+		wait,
+		User
 	},
 	props: [],
 	methods: {
-		test() {
-			let int = window.setInterval(() => {
-				if (!this.waiting) {
-					return clearInterval(int);
-				}
-
-				axios.get((`/test/${this.id}`))
-					.then((res) => {
-						let preload = document.querySelector('#original')
-						if (res.status === 200) {
-							let storageUrl = res.data.files.files.find(f => f.size == 'xsmall') ? res.data.files.files.find(f => f.size == 'xsmall').url : res.data.files.files.find(f => f.size == 'original').url
-							console.log(res.data)
-							if (localStorage.getItem('no-storage') != 'true') {
-								let userImages = JSON.parse(localStorage.getItem('userImages')) ? JSON.parse(localStorage.getItem('userImages')) : [];
-								let imgData = {
-									id: this.id,
-									iconUrl: storageUrl,
-									created: res.data.created
-								}
-
-								userImages.push(imgData)
-
-								localStorage.setItem('userImages', JSON.stringify(userImages))
-							}
-
-							this.FART(res.data)
-						}
-					})
-					.catch((err) => {
-						console.log('there was an error: ' + err)
-					})
-			}, 1000)
-		},
 		msToTime() {
 			let exp = this.created + 259200000
 			let now = Date.now()
@@ -98,20 +68,53 @@ export default {
 
 			this.exp = hours + ':' + minutes + ':' + seconds
 		},
-		loadData(data) {
-			this.msToTime();
-			this.waiting = false;
-			let imgWrap = document.querySelector('#image--wrapper');
-			imgWrap.style.setProperty('--cells', Object.keys(this.files).length);
-			window.setInterval(this.msToTime, 1000);
+		test() {
+			let int = window.setInterval(() => {
+				if (!this.waiting) {
+					return clearInterval(int);
+				}
+
+				axios.get((`/test/${this.id}`))
+					.then((res) => {
+
+						let preload = document.querySelector('#original')
+
+						if (res.status === 200) {
+							let storageUrl = res.data.files.files.find(f => f.size == 'xsmall') ? res.data.files.files.find(f => f.size == 'xsmall').url : res.data.files.files.find(f => f.size == 'original').url
+
+							if (localStorage.getItem('no-storage') != 'true') {
+
+								let ls = localStorage.getItem('userImages')
+								let userImages = ls ? JSON.parse(ls) : [];
+								let imgData = {
+									id: this.id,
+									iconUrl: storageUrl,
+									created: res.data.created
+								}
+
+								userImages.push(imgData)
+								localStorage.setItem('userImages', JSON.stringify(userImages))
+							}
+
+							this.load(res.data)
+						}
+					})
+					.catch((err) => {
+						let status = err.response.status ? err.response.status : '500';
+						let msg = err.response.data ? err.response.data : 'There was an error retrieving your file. Please try again.';
+
+						this.$router.push({ name: 'error', params: { errStatus: err.response.status, errMessage: err.response.data } })
+					})
+			}, 1000)
 		},
 		originalSize(e) {
 			let oSize = document.querySelector('.original-size')
 
 			oSize.innerText = `${e.target.naturalWidth}px`
 		},
-		FART(data) {
+		load(data) {
 			let preload = document.querySelector('#original');
+			let imgWrap = document.querySelector('#image--wrapper');
 
 			this.files = data.files.files.sort((a, b) => {
 				return a.width - b.width;
@@ -135,7 +138,10 @@ export default {
 				this.scaledHeight = `${(800 / this.originalWidth) * e.target.naturalHeight}px`;
 
 				this.files.find(e => e.size == 'original').width = e.target.naturalWidth;
-				this.loadData(data)
+				this.msToTime();
+				this.waiting = false;
+				imgWrap.style.setProperty('--cells', Object.keys(this.files).length);
+				window.setInterval(this.msToTime, 1000);
 			})
 		}
 	},
@@ -145,18 +151,17 @@ export default {
 	mounted() {
 		this.id = this.$route.params.id
 
-
 		axios.get(`/test/${this.id}`)
 			.then((res) => {
 				let preload = document.querySelector('#original')
+
 				if (res.status !== 200) {
 					return this.test();
 				}
 
-				this.FART(res.data)
+				this.load(res.data)
 			})
 			.catch((err) => {
-				// console.log(err.response)
 				this.$router.push({ name: 'error', params: { errStatus: err.response.status, errMessage: err.response.data } })
 			})
 	}

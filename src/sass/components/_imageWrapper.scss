@@ -28,12 +28,6 @@ $timingFunction: linear;
 			&::before {
 				opacity: .5;
 			}
-
-			img {
-				filter: blur(1px);
-				// transform: translateX(calc((-100% / var(--cells) * var(--offset)))) translateZ(0);
-			}
-
 		}
 
 		&::before {

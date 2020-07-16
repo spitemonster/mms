@@ -59,3 +59,24 @@ button.link-button {
 		color: darken($accent, 25%);
 	}
 }
+
+button.open {
+	all: unset;
+	background: none;
+	padding: none;
+	border: none;
+	cursor: pointer;
+
+	svg {
+		stroke: $white;
+	}
+
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	transition: all 120ms ease-in;
+
+	&:hover {
+		background: none;
+	}
+}
