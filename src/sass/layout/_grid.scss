@@ -1,0 +1,48 @@
+%grid {
+	// sets default start to flow in line
+	--start: auto;
+	--span: 1;
+	--gutter: .5rem;
+	--pad: 1;
+
+	position: relative;
+
+	display: grid;
+	width: 100%;
+
+	grid-gap: var(--gutter);
+
+	&>* {
+		// vertically centers children of grid
+		align-self: center;
+
+		// allows the grid start and span to be set with inline styles and custom variables
+		grid-column: var(--start)/span var(--span);
+
+		height: 100%;
+
+		&:first-child {
+			grid-column-start: var(--pad);
+		}
+	}
+}
+
+.grid {
+
+	// loop through from 2 to 12 and create a class for each grid size
+	@for $i from 2 through 12 {
+		&--#{$i} {
+
+			// each grid size inherits the %grid class and automatically gets i number of columns
+			@extend %grid;
+			grid-template-columns: repeat(#{$i}, 1fr);
+		}
+	}
+
+	&--1140 {
+		@media (max-width: 1140px) {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}

@@ -1,0 +1,13 @@
+.tooltip {
+	font-size: .75rem;
+	font-style: italic;
+	color: $medgrey;
+}
+
+.err {
+	color: $error;
+	position: absolute;
+	bottom: -2rem;
+	font-size: .75rem;
+	font-style: italic;
+}

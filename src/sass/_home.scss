@@ -1,0 +1,166 @@
+form {
+	margin-bottom: 5rem;
+}
+
+.form--wrapper {
+	max-width: 725px;
+
+	@media (min-width: 960px) {
+		margin: 100px 0 0 100px;
+	}
+
+	@media (max-width: 959px) {
+		margin: 25px 0 0 25px;
+	}
+}
+
+.filename,
+.image--select {
+	position: relative;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	input[type="text"] {
+		margin-top: 32px;
+	}
+}
+
+.filename {
+	margin-right: 3rem;
+}
+
+.image--select {
+	#fileName {
+		color: $medgrey;
+		margin-left: 2rem;
+		overflow-wrap: break-word;
+		max-width: 125px;
+	}
+}
+
+.file--finder {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	align-content: center;
+	margin-top: 2rem;
+
+	label {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+.advanced {
+	margin-top: 5rem;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	.plus {
+		cursor: pointer;
+	}
+}
+
+.optimizationOptions {
+	margin: 0;
+	padding: 0;
+	height: auto;
+	max-height: 0;
+	transition: $transition;
+	overflow: hidden;
+
+	p {
+		font-size: 1.5rem;
+		color: $medgrey;
+		margin-top: .875rem;
+	}
+}
+
+.open {
+	max-height: 700px !important;
+}
+
+.section--label {
+	margin-top: 5rem;
+	display: block;
+}
+
+.size--options,
+.async--options {
+	display: flex;
+	flex-direction: row;
+	margin-top: 5rem;
+	width: 540px;
+}
+
+.option {
+	width: 65px !important;
+	margin-right: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: center;
+
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		display: none;
+	}
+
+	label {
+		position: relative;
+		cursor: pointer;
+		display: block;
+		border: 3px solid $medgrey;
+		border-radius: 100%;
+		height: 28px;
+		width: 28px;
+		transition: $transition;
+
+		&:hover {
+			border-color: $accent;
+			border-width: 14px;
+		}
+	}
+
+	input:checked {
+
+		&~label {
+			border-width: 14px;
+			border-color: $accent;
+		}
+	}
+
+	p {
+		margin-top: 28px;
+		font-size: 1rem;
+		color: $lightgrey;
+		font-weight: bold;
+	}
+}
+
+.submit {
+	margin-top: 5rem;
+}
+
+#wait {
+	display: none;
+}
+
+.inputfile {
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: 1;
+}
+
+.input--error {
+	margin-top: 5rem;
+	color: $error;
+}

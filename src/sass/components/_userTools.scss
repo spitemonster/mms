@@ -1,0 +1,119 @@
+.user-tools {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: $black;
+	border-left: 2px solid $medgrey;
+
+	width: 400px;
+	padding: 0 2rem;
+	height: 100%;
+
+	h3 {
+		text-align: center;
+		margin-top: 2rem;
+	}
+
+	.img-tile {
+		width: 100%;
+		display: block;
+		margin: 2rem auto;
+		position: relative;
+		overflow: hidden;
+
+		&:focus {
+			outline: none;
+			border: none;
+		}
+
+		&::before {
+			content: "View";
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: flex;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			transition: all 120ms ease-in;
+			justify-content: center;
+			align-content: center;
+			color: $white;
+			align-items: center;
+			z-index: 5;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			height: 100%;
+			width: 100%;
+			background: $black;
+			opacity: 0;
+			transition: all 120ms ease-in;
+		}
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+		p {
+			display: none;
+		}
+
+		button {
+			position: absolute;
+			top: 0;
+			right: 0;
+			opacity: 0;
+			height: 25px;
+			width: 25px;
+			background: $error;
+			border-radius: 0;
+			color: $white;
+			padding: .5rem;
+			transition: all 120ms ease-in;
+			z-index: 5;
+
+			&:hover {
+				background: darken($error, 25%);
+			}
+		}
+
+		&:hover {
+
+			&::after {
+				opacity: .5;
+			}
+
+			&::before {
+				opacity: 1;
+			}
+
+			button {
+				opacity: 1;
+			}
+
+			img {
+				filter: blur(1px);
+			}
+		}
+	}
+
+	.links {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding: 1rem 2rem;
+		background: $black;
+
+		button {
+			font-size: .75rem;
+		}
+	}
+}

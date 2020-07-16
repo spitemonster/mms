@@ -1,0 +1,148 @@
+.input--wrap {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 130px;
+
+	span:not(.button) {
+		font-size: 1.25rem;
+		color: $lightgrey;
+		font-weight: bold;
+		margin-bottom: .5rem;
+	}
+
+	.button {
+		margin-right: 1rem;
+
+		&+p {
+			color: $medgrey;
+		}
+	}
+
+	.tooltip {
+		text-align: center;
+	}
+}
+
+input[type="file"],
+input[type="checkbox"],
+input[type="radio"] {
+	position: absolute;
+	height: 1px;
+	width: 1px;
+	transform: scale(.1);
+
+	&:focus {
+		outline: none;
+	}
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+
+	&~span {
+		&::after {
+			content: "";
+			position: relative;
+			display: block;
+			height: 20px;
+			width: 20px;
+			border-radius: 50%;
+			border: 3px solid $lightgrey;
+			transition: all 120ms ease-in;
+			margin: .5rem auto;
+			cursor: pointer;
+		}
+
+		&:hover {
+
+			&::after {
+				border-width: 10px;
+			}
+		}
+	}
+
+	&:focus~span::after {
+		border-color: $accent;
+	}
+
+	&:checked~span::after {
+		border-width: 10px;
+		border-color: $accent;
+	}
+}
+
+input[type="text"] {
+	border-radius: 21px;
+	background: #333333;
+	color: #c3c3c3;
+	border: none;
+	height: 41px;
+	width: 312px;
+	font-size: 24px;
+	padding-left: 21px;
+
+	&:focus {
+		outline: none;
+		border: 1px solid $accent;
+	}
+}
+
+.input--row {
+	margin-top: 2rem;
+	align-items: flex-start;
+
+	&.reverse {
+		flex-direction: row-reverse;
+	}
+
+	&.pack {
+		justify-content: flex-end;
+
+		.input--wrap {
+			margin-left: 1rem;
+		}
+	}
+
+	.tooltip {
+		max-width: 130px;
+	}
+}
+
+.input--wrap.select-all {
+
+	&:hover,
+	& input:focus {
+
+		span::after {
+			border-color: $accent;
+		}
+
+		@for $i from 2 through 6 {
+			&~.input--wrap:nth-of-type(#{$i}) {
+
+				span::after {
+					border-color: $accent;
+					transition-delay: calc(#{$i} * 50ms);
+				}
+			}
+		}
+	}
+}
+
+#image-select {
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+
+	span:not(.button) {
+		width: 100%;
+	}
+
+	input:focus {
+		// outline: none;
+
+		&~span.button {
+			background: darken($accent, 25%);
+		}
+	}
+}

@@ -1,0 +1,117 @@
+<------------------------------>
+Mon Jul 13 2020 16:50:37 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+alidateSizes() > Jimp.read()
+<------------------------------>
+Mon Jul 13 2020 16:52:24 GMT-0400 (Eastern Daylight Time)
+ReferenceError: res is not defined
+methods.validateSizes() > catch()
+<------------------------------>
+Mon Jul 13 2020 16:52:55 GMT-0400 (Eastern Daylight Time)
+Error: ENOENT: no such file or directory, open './tmp/dcpbppzxyr/test-original.jpg'
+validateSizes() > Jimp.read()
+<------------------------------>
+Mon Jul 13 2020 16:52:55 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Mon Jul 13 2020 16:53:20 GMT-0400 (Eastern Daylight Time)
+ReferenceError: res is not defined
+methods.validateSizes() > catch()
+<------------------------------>
+Mon Jul 13 2020 16:54:31 GMT-0400 (Eastern Daylight Time)
+ReferenceError: res is not defined
+methods.validateSizes() > catch()
+<------------------------------>
+Mon Jul 13 2020 16:54:39 GMT-0400 (Eastern Daylight Time)
+Error: ENOENT: no such file or directory, open './tmp/u333un8lg9/test-original.jpg'
+validateSizes() > Jimp.read()
+<------------------------------>
+Mon Jul 13 2020 16:54:39 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Mon Jul 13 2020 16:54:39 GMT-0400 (Eastern Daylight Time)
+Error: ENOENT: no such file or directory, open './tmp/6z5xq3749s/test-original.jpg'
+validateSizes() > Jimp.read()
+<------------------------------>
+Mon Jul 13 2020 16:54:39 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Mon Jul 13 2020 16:58:11 GMT-0400 (Eastern Daylight Time)
+Error: ENOENT: no such file or directory, open './tmp/75hrqoon7d/test-original.jpg'
+validateSizes() > Jimp.read()
+<------------------------------>
+Mon Jul 13 2020 16:58:11 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Mon Jul 13 2020 16:58:53 GMT-0400 (Eastern Daylight Time)
+ReferenceError: res is not defined
+methods.validateSizes() > catch()
+<------------------------------>
+Mon Jul 13 2020 16:59:12 GMT-0400 (Eastern Daylight Time)
+Error: ENOENT: no such file or directory, open './tmp/51kuvandri/test-original.jpg'
+validateSizes() > Jimp.read()
+<------------------------------>
+Mon Jul 13 2020 16:59:12 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Mon Jul 13 2020 16:59:12 GMT-0400 (Eastern Daylight Time)
+Error: ENOENT: no such file or directory, open './tmp/75hrqoon7d/test-original.jpg'
+validateSizes() > Jimp.read()
+<------------------------------>
+Mon Jul 13 2020 16:59:12 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Mon Jul 13 2020 17:00:13 GMT-0400 (Eastern Daylight Time)
+Error: ENOENT: no such file or directory, open './tmp/7rc37s71v5/test-original.jpg'
+validateSizes() > Jimp.read()
+<------------------------------>
+Mon Jul 13 2020 17:00:13 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Tue Jul 14 2020 12:29:48 GMT-0400 (Eastern Daylight Time)
+Error: Could not find MIME for Buffer <null>
+validateSizes() > Jimp.read()
+<------------------------------>
+Tue Jul 14 2020 12:29:48 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Tue Jul 14 2020 12:33:09 GMT-0400 (Eastern Daylight Time)
+Error: Could not find MIME for Buffer <null>
+resizeImage() > Jimp.read() > catch()
+<------------------------------>
+Tue Jul 14 2020 12:33:09 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Tue Jul 14 2020 12:35:19 GMT-0400 (Eastern Daylight Time)
+Error: ENOENT: no such file or directory, open './min/bqmqgwwfxw/codeExample.html'
+printCode() > catch()
+<------------------------------>
+Tue Jul 14 2020 12:35:19 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Wed Jul 15 2020 10:50:24 GMT-0400 (Eastern Daylight Time)
+Error: ENOENT: no such file or directory, open './tmp/wp30i8aw7k/test-original.jpg'
+validateSizes() > Jimp.read()
+<------------------------------>
+Wed Jul 15 2020 10:50:24 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
+<------------------------------>
+Wed Jul 15 2020 10:52:19 GMT-0400 (Eastern Daylight Time)
+Error: ENOENT: no such file or directory, open './tmp/wp30i8aw7k/test-original.jpg'
+validateSizes() > Jimp.read()
+<------------------------------>
+Wed Jul 15 2020 10:52:19 GMT-0400 (Eastern Daylight Time)
+TypeError: Cannot read property 'id' of undefined
+methods.validateSizes() > catch()
